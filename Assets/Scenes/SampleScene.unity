@@ -1126,11 +1126,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!95 &1209501840 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1554213333659709598, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-  m_PrefabInstance: {fileID: 6542748980604698296}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1536428743
 GameObject:
   m_ObjectHideFlags: 0
@@ -10029,26 +10024,6 @@ PrefabInstance:
     - target: {fileID: 3892185240594374547, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: moveSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: playerAnimator
-      value: 
-      objectReference: {fileID: 1209501840}
-    - target: {fileID: 8632087586976296339, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8632087586976296339, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8632087586976296339, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8632087586976296339, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
       propertyPath: m_LocalPosition.x

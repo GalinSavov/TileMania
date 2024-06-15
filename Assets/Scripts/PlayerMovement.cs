@@ -9,6 +9,7 @@ namespace Game.Player
     {
         [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private float moveSpeed = 10f;
+        [SerializeField] private float jumpHeight = 5f;
         [SerializeField] private Animator playerAnimator = null;    
 
         private Vector2 moveInput;
@@ -23,6 +24,15 @@ namespace Game.Player
         private void OnMove(InputValue inputValue)
         {
             moveInput = inputValue.Get<Vector2>();
+        }
+
+        private void OnJump(InputValue inputValue)
+        {
+
+            if (inputValue.isPressed)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+            }
         }
 
         /// <summary>
