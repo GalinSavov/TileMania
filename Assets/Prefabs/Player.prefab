@@ -228,3 +228,7 @@ MonoBehaviour:
   moveSpeed: 5
   jumpHeight: 10
   playerAnimator: {fileID: 1554213333659709598}
+  playerCollider: {fileID: 6006961763658838486}
+  groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 64

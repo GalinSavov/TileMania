@@ -10,7 +10,9 @@ namespace Game.Player
         [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float jumpHeight = 5f;
-        [SerializeField] private Animator playerAnimator = null;    
+        [SerializeField] private Animator playerAnimator = null;
+        [SerializeField] private Collider2D playerCollider = null;
+        [SerializeField] private LayerMask groundLayerMask = new LayerMask();
 
         private Vector2 moveInput;
         
@@ -18,7 +20,6 @@ namespace Game.Player
         {
             Run();
             FlipSprite();
-            
         }
 
         private void OnMove(InputValue inputValue)
@@ -28,8 +29,7 @@ namespace Game.Player
 
         private void OnJump(InputValue inputValue)
         {
-
-            if (inputValue.isPressed)
+            if (inputValue.isPressed && playerCollider.IsTouchingLayers(groundLayerMask))
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             }
