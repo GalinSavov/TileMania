@@ -12,7 +12,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - Climbing
   - 
   - 
   - 
@@ -55,6 +55,9 @@ TagManager:
     locked: 0
   - name: Background Layer 1
     uniqueID: 2957733533
+    locked: 0
+  - name: Climbing
+    uniqueID: 1268741577
     locked: 0
   - name: Platforms
     uniqueID: 2226312817

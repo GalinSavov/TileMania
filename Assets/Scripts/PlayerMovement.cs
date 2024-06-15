@@ -13,13 +13,21 @@ namespace Game.Player
         [SerializeField] private Animator playerAnimator = null;
         [SerializeField] private Collider2D playerCollider = null;
         [SerializeField] private LayerMask groundLayerMask = new LayerMask();
+        [SerializeField] private LayerMask climbingLayerMask = new LayerMask();
 
         private Vector2 moveInput;
-        
+        private float playerDefaultGravity;
+
+        private void Start()
+        {
+            playerDefaultGravity = rb.gravityScale;
+        }
+
         void Update()
         {
             Run();
             FlipSprite();
+            Climb();
         }
 
         private void OnMove(InputValue inputValue)
@@ -56,8 +64,30 @@ namespace Game.Player
             else if (moveInput.x > 0)
             transform.localScale = new Vector3(1, 1, 1);
         }
-    
 
+        private void Climb()
+        {
+            if (moveInput.y != 0 && playerCollider.IsTouchingLayers(climbingLayerMask))
+            {
+                rb.velocity = new Vector2(rb.velocity.x,moveInput.y);
+                playerAnimator.SetBool("isClimbing", true);
+                playerAnimator.speed = 1;
+                rb.gravityScale = 0;
+            }
+
+            else if(playerCollider.IsTouchingLayers(climbingLayerMask) && !playerCollider.IsTouchingLayers(groundLayerMask) && moveInput.y == 0)
+            {
+                rb.velocity = Vector2.zero;
+                playerAnimator.speed = 0;
+                rb.gravityScale = 0;
+            }
+            else
+            {
+                playerAnimator.SetBool("isClimbing", false);
+                rb.gravityScale = playerDefaultGravity;
+            }
+
+        }
     }
 
 }
