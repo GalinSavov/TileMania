@@ -9,17 +9,15 @@ namespace Game.Player
     {
         [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private float moveSpeed = 10f;
-        Vector2 moveInput;
-        string jump;
-        void Start()
-        {
+        [SerializeField] private Animator playerAnimator = null;    
 
-        }
-
-        // Update is called once per frame
+        private Vector2 moveInput;
+        
         void Update()
         {
             Run();
+            FlipSprite();
+            
         }
 
         private void OnMove(InputValue inputValue)
@@ -27,13 +25,29 @@ namespace Game.Player
             moveInput = inputValue.Get<Vector2>();
         }
 
+        /// <summary>
+        /// Moves the character on the x-axis and play the appropriate animation
+        /// </summary>
         private void Run()
         {
-            //instead of 0, use rb.velocity.y
-            //whatever the current y of the rb is, use that
             Vector2 runInput = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
             rb.velocity = runInput;
+
+            playerAnimator.SetBool("isRunning", moveInput.x != 0); 
         }
+
+        /// <summary>
+        /// Flips the character depending if the A or D key was pressed
+        /// </summary>
+        private void FlipSprite()
+        {
+            if (moveInput.x < 0)
+                transform.localScale = new Vector3(-1,1, 1);
+            else if (moveInput.x > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        }
+    
+
     }
 
 }
