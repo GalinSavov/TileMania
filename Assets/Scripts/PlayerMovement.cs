@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,16 +10,22 @@ namespace Game.Player
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float jumpHeight = 5f;
         [SerializeField] private Animator playerAnimator = null;
-        [SerializeField] private Collider2D playerCollider = null;
-        [SerializeField] private LayerMask groundLayerMask = new LayerMask();
-        [SerializeField] private LayerMask climbingLayerMask = new LayerMask();
+        [SerializeField] private BoxCollider2D playerFeetBoxCollider = null;
+        [SerializeField] private CapsuleCollider2D playerBodyCapsuleCollider = null;
+        [SerializeField] private PlayerInput playerInput = null;
+        [SerializeField] private SpriteRenderer playerSpriteRenderer = null;
+
 
         private Vector2 moveInput;
         private float playerDefaultGravity;
 
+        public static Action OnPlayerDeath;
+
         private void Start()
         {
             playerDefaultGravity = rb.gravityScale;
+            playerInput.ActivateInput();
+            
         }
 
         void Update()
@@ -37,7 +42,7 @@ namespace Game.Player
 
         private void OnJump(InputValue inputValue)
         {
-            if (inputValue.isPressed && playerCollider.IsTouchingLayers(groundLayerMask))
+            if (inputValue.isPressed && playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
             {
                 rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
             }
@@ -67,7 +72,7 @@ namespace Game.Player
 
         private void Climb()
         {
-            if (moveInput.y != 0 && playerCollider.IsTouchingLayers(climbingLayerMask))
+            if (moveInput.y != 0 && playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Climb")))
             {
                 rb.velocity = new Vector2(rb.velocity.x,moveInput.y);
                 playerAnimator.SetBool("isClimbing", true);
@@ -75,7 +80,8 @@ namespace Game.Player
                 rb.gravityScale = 0;
             }
 
-            else if(playerCollider.IsTouchingLayers(climbingLayerMask) && !playerCollider.IsTouchingLayers(groundLayerMask) && moveInput.y == 0)
+            else if(playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Climb")) && !playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))
+                && moveInput.y == 0)
             {
                 rb.velocity = Vector2.zero;
                 playerAnimator.speed = 0;
@@ -87,6 +93,18 @@ namespace Game.Player
                 rb.gravityScale = playerDefaultGravity;
             }
 
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if(collision.gameObject.tag == "Enemy")
+            {
+                playerInput.DeactivateInput();
+                playerAnimator.SetTrigger("isDead");
+                playerSpriteRenderer.color = Color.red;
+                gameObject.layer = 0;
+                OnPlayerDeath?.Invoke();
+            }
         }
     }
 
