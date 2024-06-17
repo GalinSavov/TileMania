@@ -97,7 +97,8 @@ namespace Game.Player
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
-            if(collision.gameObject.tag == "Enemy")
+            if(playerBodyCapsuleCollider.IsTouchingLayers(LayerMask.GetMask("Enemies","Hazards")))
+                
             {
                 playerInput.DeactivateInput();
                 playerAnimator.SetTrigger("isDead");
