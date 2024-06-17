@@ -18324,6 +18324,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 7404768501468882058, guid: 4d4bd309f0174814e92177c8f23a66ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8408506208897451975, guid: 4d4bd309f0174814e92177c8f23a66ad, type: 3}
       propertyPath: m_Size.y
       value: 1.1187439
@@ -18368,38 +18372,6 @@ PrefabInstance:
     - target: {fileID: 3892185240594374547, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: playerInput
-      value: 
-      objectReference: {fileID: 6542748980604698298}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: playerBoxCollider
-      value: 
-      objectReference: {fileID: 6542748980604698303}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: playerSpriteRenderer
-      value: 
-      objectReference: {fileID: 6542748980604698307}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: playerFeetBoxCollider
-      value: 
-      objectReference: {fileID: 6542748980604698303}
-    - target: {fileID: 5236584177450823474, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: playerBodyCapsuleCollider
-      value: 
-      objectReference: {fileID: 6542748980604698304}
-    - target: {fileID: 7099000626131832144, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 59c718afb6a6c44439388679d9e3a456, type: 2}
-    - target: {fileID: 8319899543500095429, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8319899543500095429, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8632087586976296339, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18451,35 +18423,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8632087586976296339, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
   m_PrefabInstance: {fileID: 6542748980604698296}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6542748980604698298 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4951047232556497089, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-  m_PrefabInstance: {fileID: 6542748980604698296}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &6542748980604698302 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1554213333659709598, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-  m_PrefabInstance: {fileID: 6542748980604698296}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &6542748980604698303 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 7099000626131832144, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-  m_PrefabInstance: {fileID: 6542748980604698296}
-  m_PrefabAsset: {fileID: 0}
---- !u!70 &6542748980604698304 stripped
-CapsuleCollider2D:
-  m_CorrespondingSourceObject: {fileID: 8319899543500095429, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
-  m_PrefabInstance: {fileID: 6542748980604698296}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &6542748980604698307 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 6584965450257988104, guid: b032c715bfb3f4a428fa76e603bfc49c, type: 3}
   m_PrefabInstance: {fileID: 6542748980604698296}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807

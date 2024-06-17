@@ -14,6 +14,9 @@ namespace Game.Player
         [SerializeField] private CapsuleCollider2D playerBodyCapsuleCollider = null;
         [SerializeField] private PlayerInput playerInput = null;
         [SerializeField] private SpriteRenderer playerSpriteRenderer = null;
+        //refactor and make more classes
+        [SerializeField] private GameObject projectile = null;
+        [SerializeField] private Transform projectileSpawnPoint = null;
 
 
         private Vector2 moveInput;
@@ -106,6 +109,12 @@ namespace Game.Player
                 gameObject.layer = 0;
                 OnPlayerDeath?.Invoke();
             }
+        }
+
+        private void OnFire(InputValue inputValue)
+        {
+            GameObject playerProjectile = Instantiate(projectile, projectileSpawnPoint.position,Quaternion.identity);
+        
         }
     }
 
