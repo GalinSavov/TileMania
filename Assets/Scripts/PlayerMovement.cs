@@ -8,7 +8,8 @@ namespace Game.Player
     {
         [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private float moveSpeed = 10f;
-        [SerializeField] private float jumpHeight = 5f;
+        [SerializeField] private float jumpspeed = 5f;
+        [SerializeField] private float climbSpeed = 5f;
         [SerializeField] private Animator playerAnimator = null;
         [SerializeField] private BoxCollider2D playerFeetBoxCollider = null;
         [SerializeField] private CapsuleCollider2D playerBodyCapsuleCollider = null;
@@ -47,7 +48,7 @@ namespace Game.Player
         {
             if (inputValue.isPressed && playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpHeight);
+                rb.velocity = new Vector2(rb.velocity.x, jumpspeed);
             }
         }
 
@@ -75,15 +76,15 @@ namespace Game.Player
 
         private void Climb()
         {
-            if (moveInput.y != 0 && playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Climb")))
+            if (moveInput.y != 0 && playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")))
             {
-                rb.velocity = new Vector2(rb.velocity.x,moveInput.y);
+                rb.velocity = new Vector2(rb.velocity.x,moveInput.y * climbSpeed);
                 playerAnimator.SetBool("isClimbing", true);
                 playerAnimator.speed = 1;
                 rb.gravityScale = 0;
             }
 
-            else if(playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Climb")) && !playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))
+            else if(playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Climbing")) && !playerFeetBoxCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))
                 && moveInput.y == 0)
             {
                 rb.velocity = Vector2.zero;

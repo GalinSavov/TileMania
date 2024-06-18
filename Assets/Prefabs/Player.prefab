@@ -214,7 +214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1209914220469795975}
   moveSpeed: 5
-  jumpHeight: 10
+  jumpspeed: 10
+  climbSpeed: 5
   playerAnimator: {fileID: 1554213333659709598}
   playerFeetBoxCollider: {fileID: 7099000626131832144}
   playerBodyCapsuleCollider: {fileID: 8319899543500095429}
