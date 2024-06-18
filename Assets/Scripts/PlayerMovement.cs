@@ -109,6 +109,7 @@ namespace Game.Player
                 playerSpriteRenderer.color = Color.red;
                 gameObject.layer = 0;
                 OnPlayerDeath?.Invoke();
+                GameManager.Instance.ProcessPlayerDeath();
             }
         }
 
