@@ -11,7 +11,6 @@ namespace Game.Enemies
         [SerializeField] private BoxCollider2D boxCollider = null;
         void Update()
         {
-            
             Move();
         }
         private void Move()
