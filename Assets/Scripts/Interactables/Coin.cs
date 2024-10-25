@@ -8,7 +8,6 @@ namespace Game.Interactables
     {
         [SerializeField] private AudioSource audioSource = null;
         [SerializeField] private int pointsAwardedOnPickup = 100;
-
         private bool hasPickedUp = true;
         private void OnTriggerEnter2D(Collider2D collision)
         {
@@ -20,7 +19,5 @@ namespace Game.Interactables
                 Destroy(gameObject);
             }
         }
-     
     }
-
 }

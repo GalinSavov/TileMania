@@ -6,8 +6,8 @@ namespace Game.Enemies
 {
     public class EnemyMovement : MonoBehaviour
     {
-        [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private float moveSpeed = 5f;
+        [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private BoxCollider2D boxCollider = null;
         void Update()
         {

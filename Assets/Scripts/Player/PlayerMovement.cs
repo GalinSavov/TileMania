@@ -9,7 +9,7 @@ namespace Game.Player
         [SerializeField] private float moveSpeed = 10f;
         [SerializeField] private float jumpspeed = 5f;
         [SerializeField] private float climbSpeed = 5f;
-        private Vector2 moveInput;
+                         private Vector2 moveInput;
 
         [SerializeField] private PlayerAnimator playerAnimator = null;
         [SerializeField] private PlayerPhysics playerPhysics = null;
@@ -44,9 +44,8 @@ namespace Game.Player
             }
         }
 
-        /// <summary>
-        /// Moves the character on the x-axis and play the appropriate animation
-        /// </summary>
+        
+        // Moves the character on the x-axis and play the appropriate animation
         private void Run()
         {
             Vector2 runInput = new Vector2(moveInput.x * moveSpeed, playerPhysics.GetPlayerRigidbody2D().velocity.y);
@@ -54,9 +53,7 @@ namespace Game.Player
             playerAnimator.SetBool("isRunning", moveInput.x != 0); 
         }
 
-        /// <summary>
-        /// Flips the character depending if the A or D key was pressed
-        /// </summary>
+        // Flips the character depending if the A or D key was pressed
         private void FlipSprite()
         {
             if (moveInput.x < 0)

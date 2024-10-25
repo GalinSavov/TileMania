@@ -9,8 +9,6 @@ namespace Game.Projectiles
     {
         [SerializeField] private Rigidbody2D rb = null;
         [SerializeField] private float speed = 5f;
-        [SerializeField] private Transform parentTransform = null;
-
         private GameObject player;
 
         private void Awake()
