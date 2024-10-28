@@ -44,13 +44,9 @@ GameObject:
   - component: {fileID: 1554213333659709598}
   - component: {fileID: 4951047232556497089}
   - component: {fileID: 5236584177450823474}
-  - component: {fileID: 8187155966645009944}
-  - component: {fileID: 7451989063677970188}
   - component: {fileID: 1209914220469795975}
   - component: {fileID: 8319899543500095429}
   - component: {fileID: 7099000626131832144}
-  - component: {fileID: 7677123868720564193}
-  - component: {fileID: 4254118795613179451}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -192,38 +188,14 @@ MonoBehaviour:
   moveSpeed: 5
   jumpspeed: 10
   climbSpeed: 5
-  playerAnimator: {fileID: 8187155966645009944}
-  playerPhysics: {fileID: 7451989063677970188}
-  playerInput: {fileID: 4951047232556497089}
-  playerSpriteRenderer: {fileID: 4254118795613179451}
---- !u!114 &8187155966645009944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3892185240594374547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 461f560c99eb7f9499baded66d005753, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnimator: {fileID: 1554213333659709598}
---- !u!114 &7451989063677970188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3892185240594374547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de4c48e8218af1d4c9c951c4eeb9970a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   rb: {fileID: 1209914220469795975}
-  playerFeetBoxCollider: {fileID: 7099000626131832144}
-  playerBodyCapsuleCollider: {fileID: 8319899543500095429}
+  feetBoxCollider: {fileID: 7099000626131832144}
+  bodyCapsuleCollider: {fileID: 8319899543500095429}
+  playerInput: {fileID: 4951047232556497089}
+  playerAnimator: {fileID: 1554213333659709598}
+  playerSpriteRenderer: {fileID: 6584965450257988104}
+  projectile: {fileID: 3118920029202722547, guid: 98987ad2db39db0488b49aa702564417, type: 3}
+  projectileSpawnPoint: {fileID: 5479849122068332601}
 --- !u!50 &1209914220469795975
 Rigidbody2D:
   serializedVersion: 4
@@ -331,31 +303,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40233707, y: 0.19555569}
   m_EdgeRadius: 0
---- !u!114 &7677123868720564193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3892185240594374547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd08bb7347327d84b8a08db48e45c81c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectile: {fileID: 3118920029202722547, guid: 98987ad2db39db0488b49aa702564417, type: 3}
-  projectileSpawnPoint: {fileID: 5479849122068332601}
-  playerInput: {fileID: 4951047232556497089}
---- !u!114 &4254118795613179451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3892185240594374547}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4628bfafdd1ee954680d3a1a2fd5ddab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpriteRenderer: {fileID: 6584965450257988104}

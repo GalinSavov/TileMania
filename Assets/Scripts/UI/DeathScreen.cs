@@ -10,7 +10,7 @@ namespace Game.UI
 
         private void OnEnable()
         {
-            PlayerMovement.OnPlayerDeath += HandleOnPlayerDeath;
+            PlayableCharacter.OnPlayerDeath += HandleOnPlayerDeath;
         }
         private void Start()
         {
@@ -18,7 +18,7 @@ namespace Game.UI
         }
         private void OnDisable()
         {
-            PlayerMovement.OnPlayerDeath -= HandleOnPlayerDeath;
+            PlayableCharacter.OnPlayerDeath -= HandleOnPlayerDeath;
         }
 
         private void HandleOnPlayerDeath()

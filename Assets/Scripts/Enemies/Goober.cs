@@ -14,7 +14,7 @@ namespace Game.Enemies
         {
             rb.velocity = new Vector2(moveSpeed, 0);
         }
-        private void Flip()
+        public void Flip()
         {
             moveSpeed = -moveSpeed;
             transform.localScale = new Vector3(transform.localScale.x * -1, 1, 1);
